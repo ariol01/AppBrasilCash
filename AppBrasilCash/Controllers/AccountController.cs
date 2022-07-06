@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppBrasilCash.Application.Interface.AppService;
+using AppBrasilCash.Application.Service;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +10,11 @@ namespace AppBrasilCash.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        private readonly IAccountAppService _accountAppService;
+        public AccountController(IAccountAppService accountAppService)
+        {
+            _accountAppService = accountAppService;
+        }
         // GET: api/<AccountController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -17,15 +24,17 @@ namespace AppBrasilCash.Controllers
 
         // GET api/<AccountController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+           var teste =  await _accountAppService.Get(id);
+
         }
 
         // POST api/<AccountController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         // PUT api/<AccountController>/5

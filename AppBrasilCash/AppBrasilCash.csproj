@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AppBrasilCash.Application\AppBrasilCash.Application.csproj" />
     <ProjectReference Include="..\AppCashBrasil.Infra\AppCashBrasil.Infra.csproj" />
   </ItemGroup>
 
