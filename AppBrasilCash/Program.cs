@@ -16,6 +16,7 @@ var app = builder.Build();
 startup.Configure(app, app.Environment);
 
 // Configure the HTTP request pipeline.
+app.Run();
 
 
 
