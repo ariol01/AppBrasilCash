@@ -27,6 +27,7 @@ namespace AppBrasilCash.Controllers
         public async Task<IActionResult> Get(int id)
         {
            var teste =  await _accountAppService.Get(id);
+            return null;
 
         }
 

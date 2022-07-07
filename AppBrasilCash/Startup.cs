@@ -1,4 +1,10 @@
-﻿using AppCashBrasil.Infra;
+﻿using AppBrasilCash.Application.Interface.AppService;
+using AppBrasilCash.Application.Service;
+using AppBrasilCash.Models.Interface.Repository;
+using AppBrasilCash.Models.Interface.Service;
+using AppBrasilCash.Models.Service;
+using AppCashBrasil.Infra;
+using AppCashBrasil.Infra.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppBrasilCash
@@ -20,6 +26,11 @@ namespace AppBrasilCash
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            services.AddScoped<IAccountAppService, AccountAppService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+
         }
         public void Configure(WebApplication app, IWebHostEnvironment environment)
         {
