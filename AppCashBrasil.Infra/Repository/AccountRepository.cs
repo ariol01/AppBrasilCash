@@ -1,5 +1,6 @@
 ﻿using AppBrasilCash.Models;
 using AppBrasilCash.Models.Interface.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +21,15 @@ namespace AppCashBrasil.Infra.Repository
             return null;
         }
 
-        public Task<IList<Account>> GetAll()
+        public async Task<IList<Account>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Accounts.ToListAsync();
         }
 
-        public Task Post(Account account)
+        public async Task Post(Account account)
         {
-            throw new NotImplementedException();
+            await _context.AddAsync(account);
+            await _context.SaveChangesAsync();
         }
     }
 }

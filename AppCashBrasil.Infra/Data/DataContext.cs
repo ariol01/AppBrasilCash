@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AppBrasilCash.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace AppCashBrasil.Infra
         {
             
         }
+
+        public DbSet<Account> Accounts { get; set; }
     }
 }

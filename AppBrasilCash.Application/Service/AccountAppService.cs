@@ -21,14 +21,14 @@ namespace AppBrasilCash.Application.Service
           return await _accountService.Get(id);
         }
 
-        public Task<IList<Account>> GetAll()
+        public async Task<IList<Account>> GetAll()
         {
-            throw new NotImplementedException();
+           return await _accountService.GetAll();
         }
 
-        public Task Post(Account account)
+        public async Task Post(Account account)
         {
-            throw new NotImplementedException();
+           await _accountService.Post(account);
         }
     }
 }
