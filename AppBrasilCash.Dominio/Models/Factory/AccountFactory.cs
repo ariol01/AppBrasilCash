@@ -16,7 +16,8 @@ namespace AppBrasilCash.Dominio.Models.Factory
             account.Name = accountDto.Name;
             account.Password = accountDto.Password;
             account.PhoneNumber = accountDto.PhoneNumber;
-            accountDto.PostalCode = accountDto.PostalCode;
+            account.PostalCode = accountDto.PostalCode;
+            account.Address = AddressFactory.Criar(accountDto);
             return account;
         }
     }

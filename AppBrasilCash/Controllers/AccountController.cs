@@ -52,8 +52,8 @@ namespace AppBrasilCash.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] AccountDto accountDto)
         {
-            var account = AccountFactory.Criar(accountDto);
-            var result = new AccountValidation().Validate(account);
+            var result = new AccountValidation().Validate(accountDto);
+            var account = AccountFactory.Criar(accountDto);            
             var EhCpfOuCpnjValido = CpfHelper.Validar(account.TaxId) || CpnjHelper.Validar(account.TaxId);
             if (result.IsValid && EhCpfOuCpnjValido)
             {

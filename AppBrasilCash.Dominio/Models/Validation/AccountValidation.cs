@@ -1,8 +1,9 @@
-﻿using FluentValidation;
+﻿using AppBrasilCash.Models.Dtos;
+using FluentValidation;
 
 namespace AppBrasilCash.Models.Validation
 {
-    public class AccountValidation : AbstractValidator<Account>
+    public class AccountValidation : AbstractValidator<AccountDto>
     {
         public AccountValidation()
         {
