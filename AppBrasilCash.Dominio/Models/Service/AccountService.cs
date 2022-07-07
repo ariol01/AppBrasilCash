@@ -18,14 +18,14 @@ namespace AppBrasilCash.Models.Service
            return _accountRepository.Get(id);
         }
 
-        public Task<IList<Account>> GetAll()
+        public async Task<IList<Account>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _accountRepository.GetAll();   
         }
 
-        public Task Post(Account account)
+        public async Task Post(Account account)
         {
-            throw new NotImplementedException();
+            await _accountRepository.Post(account);
         }
 
         public Task Put(Account account)
