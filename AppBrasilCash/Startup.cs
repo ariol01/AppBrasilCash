@@ -1,5 +1,7 @@
 ﻿using AppBrasilCash.Application.Interface.AppService;
 using AppBrasilCash.Application.Service;
+using AppBrasilCash.Dominio.Models.Interface.Api;
+using AppBrasilCash.Dominio.Models.Service.Api;
 using AppBrasilCash.Models.Interface.Repository;
 using AppBrasilCash.Models.Interface.Service;
 using AppBrasilCash.Models.Service;
@@ -30,6 +32,7 @@ namespace AppBrasilCash
             services.AddScoped<IAccountAppService, AccountAppService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IViaCepApi,ViaCepApi>();
 
         }
         public void Configure(WebApplication app, IWebHostEnvironment environment)

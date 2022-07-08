@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AppBrasilCash.Dominio.Models.Dtos;
+using System.ComponentModel.DataAnnotations;
 
 namespace AppBrasilCash.Models.Dtos
 {
@@ -14,7 +15,7 @@ namespace AppBrasilCash.Models.Dtos
         public string PhoneNumber { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public string PostalCode { get; set; }
-        public string Status { get; set; }
-        public AccountDto Address { get; set; }
+        public string Status { get; set; } = "Pending";
+        
     }
 }

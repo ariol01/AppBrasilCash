@@ -8,10 +8,9 @@ namespace AppBrasilCash.Dominio.Models.Dtos
 {
     public class AddressDto
     {
-        public int Id { get; set; }
-        public string Street { get; set; }
+        public string Bairro { get; set; }
+        public string Uf { get; set; }
+        public string Localidade { get; set; }
         public string District { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
     }
 }
