@@ -13,9 +13,9 @@ namespace AppBrasilCash.Models.Service
             _accountRepository = accountRepository;
         }
 
-        public Task<Account> Get(int id)
+        public Task<Account> Get(string desc)
         {
-           return _accountRepository.Get(id);
+           return _accountRepository.Get(desc);
         }
 
         public async Task<IList<Account>> GetAll()

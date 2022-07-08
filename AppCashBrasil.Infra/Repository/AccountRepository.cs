@@ -16,9 +16,9 @@ namespace AppCashBrasil.Infra.Repository
         {
             _context = context;
         }
-        public Task<Account> Get(int id)
+        public async Task<Account> Get(string desc)
         {
-            return null;
+            return await _context.Accounts.FirstOrDefaultAsync(x=>x.Name == desc || x.TaxId.Contains(desc) || x.TaxId.Equals(desc) || x.CreatedAt.Equals(desc));
         }
 
         public async Task<IList<Account>> GetAll()
@@ -28,7 +28,7 @@ namespace AppCashBrasil.Infra.Repository
 
         public async Task Post(Account account)
         {
-            await _context.AddAsync(account);
+            await _context.Accounts.AddAsync(account);
             await _context.SaveChangesAsync();
         }
     }

@@ -2,7 +2,7 @@
 {
     public interface IAccountRepository
     {
-        Task<Account> Get(int id);
+        Task<Account> Get(string desc);
         Task<IList<Account>> GetAll();
         Task Post(Account account);
     }

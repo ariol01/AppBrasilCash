@@ -36,10 +36,10 @@ namespace AppBrasilCash.Controllers
         }
 
         // GET api/<AccountController>/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        [HttpGet("{desc}")]
+        public async Task<IActionResult> Get(string desc)
         {
-            var resultado = await _accountAppService.Get(id);
+            var resultado = await _accountAppService.Get(desc);
             if (resultado != null)
             {
                 return Ok(resultado);
@@ -53,13 +53,20 @@ namespace AppBrasilCash.Controllers
         public async Task<IActionResult> Post([FromBody] AccountDto accountDto)
         {
             var result = new AccountValidation().Validate(accountDto);
+            
             var addressDto = _viaCepApi.BuscarCep(accountDto.PostalCode);
+            
             var account = AccountFactory.Criar(accountDto);
+            
             account.Address = AddressFactory.Criar(addressDto);
+            
+            account.Status = account.PostalCode is null && addressDto is null ? account.Status: "Approved";
             var EhCpfOuCpnjValido = CpfHelper.Validar(account.TaxId) || CpnjHelper.Validar(account.TaxId);
+            
             if (result.IsValid && EhCpfOuCpnjValido)
             {
                 await _accountAppService.Post(account);
+                return Ok(account);
             }
             return BadRequest("Erro ao tentar gravar a conta do cliente.");
         }

@@ -16,9 +16,9 @@ namespace AppBrasilCash.Application.Service
         {
             _accountService = accountService;
         }
-        public async Task<Account> Get(int id)
+        public async Task<Account> Get(string desc)
         {
-          return await _accountService.Get(id);
+          return await _accountService.Get(desc);
         }
 
         public async Task<IList<Account>> GetAll()
