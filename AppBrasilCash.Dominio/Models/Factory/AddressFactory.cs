@@ -14,15 +14,17 @@ namespace AppBrasilCash.Dominio.Models.Factory
     {
         public static Address Criar(AddressDto addressDto)
         {
-            var address = new Address();
+            
             if (addressDto is not null)
             {
+                var address = new Address();
                 address.Street = addressDto.Bairro;
                 address.City = addressDto.Localidade;
                 address.District = addressDto.Bairro;
                 address.State = addressDto.Uf;
-            }            
-            return address;
+                return address;
+            }
+            return null;
         }
     }
 }

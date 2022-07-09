@@ -60,7 +60,7 @@ namespace AppBrasilCash.Controllers
             
             account.Address = AddressFactory.Criar(addressDto);
             
-            account.Status = account.PostalCode is null && addressDto is null ? account.Status: "Approved";
+            account.Status = addressDto is null ? account.Status: "Approved";
             var EhCpfOuCpnjValido = CpfHelper.Validar(account.TaxId) || CpnjHelper.Validar(account.TaxId);
             
             if (result.IsValid && EhCpfOuCpnjValido)
