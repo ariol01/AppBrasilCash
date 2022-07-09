@@ -1,5 +1,4 @@
 ﻿using AppBrasilCash.Application.Interface.AppService;
-using AppBrasilCash.Application.Service;
 using AppBrasilCash.Dominio.Models.Factory;
 using AppBrasilCash.Dominio.Models.Helpers;
 using AppBrasilCash.Dominio.Models.Interface.Api;

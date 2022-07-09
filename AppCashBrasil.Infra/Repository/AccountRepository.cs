@@ -30,7 +30,7 @@ namespace AppCashBrasil.Infra.Repository
 
         public async Task<IList<Account>> GetAll()
         {
-            return await _context.Accounts.ToListAsync();
+            return await _context.Accounts.Include(x=>x.Address).ToListAsync();
         }
 
         public async Task Post(Account account)
